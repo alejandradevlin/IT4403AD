@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	    <script type="text/javascript">
+            $(document).ready(function() {
+                $("#one").click(function() {
+                    $("#pOne").hide();
+                })
+                 $("#two").click(function() {
+                    $("#pTwo").hide();
+                })
+            });
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <p id="pOne">I'm paragraph one!</p>
+            <p id="pTwo">I'm paragraph two!</p>
+        </div>
+
+        <div>
+            <button id=one type="button">I'm button one!</button>
+            <button id=two type="button">I'm button two!</button>
+        </div>
+    </body>
+</html>
