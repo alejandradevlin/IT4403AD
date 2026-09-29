@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style></style>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	    <script type="text/javascript">
+        $(function(){
+            var json={
+                "Student": 
+                {
+                    "Name": "Alejandra",
+                    "Major": "IT",
+                    "Email": "adevlin3@students.kennesaw.edu",
+                    "Courses":
+                    [
+                        {
+                            "Title": "IT4403",
+                            "Code": "1234",
+                            "Hours": 3
+                        },
+                        {
+                            "Title": "IT4302",
+                            "Code": "5678",
+                            "Hours": 2
+                        },
+                        {
+                            "Title": "IT3405",
+                            "Code": "9101",
+                            "Hours": 3
+                        }
+                    ]
+                }
+            };
+
+//Use JavaScript or jQuery to display:
+//    Student name
+//    Major
+//    Email
+//    Each course code
+//    Each course title
+//    Credit hours for each course
+            var HTML="";
+            HTML+=json.Student.Name+"<br>"+json.Student.Major+"<br>"+json.Student.Email;
+			for (i in json.Student.Courses)
+            {   
+                HTML+="<br>"+json.Student.Courses[i].Title+ "<br>" +json.Student.Courses[i].Code+"<br>"+json.Student.Courses[i].Hours;
+            }
+            $("#student").html(HTML);
+        })
+
+        </script>
+    </head>
+    <body>
+<div id="student"></div>
+
+    </body>
+</html>
