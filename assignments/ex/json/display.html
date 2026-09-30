@@ -16,10 +16,10 @@
                 $.getJSON("weather.json", function (json)
                     {
                         $("#location").html("<b>Location</b><br>"+json.name+", "+json.sys.country+"<br>Longitude:"+json.coord.lon+" Latitude:"+json.coord.lat); 
-                        $("#temp").html("<b>Temperature</b><br>"+json.main.temp+"℉")
+                        $("#temp").html("<b>Temperature</b><br>"+json.main.temp+"degrees")
                         $("#weather").html("<b>Weather</b><br>"+json.weather[0].main+", "+json.weather[0].description)
                         $("#humidity").html("<b>Humidity</b><br>"+json.main.humidity+"%")
-                        $("#wind").html("<b>Wind</b><br>Speed:"+json.wind.speed+"m/s"+"<br>Degree:"+json.wind.deg+"°")                        
+                        $("#wind").html("<b>Wind</b><br>Speed:"+json.wind.speed+"m/s"+"<br>Degree:"+json.wind.deg+"degrees")                        
 
                     var courseHTML="";
 
