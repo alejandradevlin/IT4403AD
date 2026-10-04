@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f9;
+            }
+
+            .book {
+                background: white;
+                border: 1px solid lightgray;
+                padding: 16px;
+                margin-bottom: 20px;
+                gap: 20px;
+                width: 300px;
+            }
+
+            .title {
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration: underline;
+                margin-bottom: 8px;
+            }
+
+            .nocover {
+                background: lightgrey;
+                border: 1px solid grey;
+                border-radius: 8px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                width: 50%;
+                height: 200px;
+                padding: 5px;
+                
+            }
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $.getJSON("openlibrary-search.json", function (json2)
+                    {
+                        //Title
+                        //Author or authors
+                        //First publication year
+                        //Publisher
+                        //Edition count
+                        //ISBN
+                        //Cover image
+                        //Link to the Open Library book or work record
+                        //Other useful metadata contained in the record
+                        var HTML="";
+                            for (i in json2.docs) 
+                            {  
+                                HTML += "<div class='book'>";                                
+                                if (!json2.docs[i].title) {
+                                    HTML+="Apologies, this title isn't available."
+                                } else
+                                    HTML+="<p class='title'>"+json2.docs[i].title+"</p>";
+
+                                if (!json2.docs[i].author_name) {
+                                    HTML+="Apologies, the author's name isn't available."
+                                } else                                    
+                                    HTML+="<p><b>Author:</b> "+json2.docs[i].author_name+"</p>";
+
+                                if (!json2.docs[i].first_publish_year) {
+                                    HTML+="Apologies, publication year isn't available."
+                                } else
+                                    HTML+="<p><b> Publication Year: </b>"+json2.docs[i].first_publish_year+"</p>";
+
+                                if (!json2.docs[i].edition_count) {
+                                    HTML+="Apologies, the edition number isn't available."
+                                } else                                
+                                HTML+="<p><b>Edition: </b>"+json2.docs[i].edition_count+"</p>";
+
+                                if (!json2.docs[i].cover_i) {
+                                    HTML+="<p class='nocover'>Apologies, this cover isn't available.</p>"
+                                } else                                 
+                                    HTML+="<img src=https://covers.openlibrary.org/b/id/"+json2.docs[i].cover_i+"-L.jpg width=50% alt='Cover illustration for "
+                                    +json2.docs[i].title+"'/>"
+                                if (!json2.docs[i].key) {
+                                    HTML+="<div class='nocover'>Apologies, this record isn't available.</div>"
+                                } else    
+                                    HTML+="<p><a href=https://openlibrary.org"+json2.docs[i].key+">Open Library Record</a></p>"
+                                
+                                HTML += "</div>";
+                            }
+                        $("#search").html(HTML);                        
+
+                    
+                    }); 
+            })
+            
+        </script>
+    </head>
+    <body>
+        <div id="search"></p>
+    </body>
+</html>
