@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f9;
+            }
+
+            .book {
+                background: white;
+                border: 1px solid lightgray;
+                padding: 16px;
+                margin-bottom: 20px;
+                gap: 20px;
+                width: 300px;
+            }
+
+            .title {
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration: underline;
+                margin-bottom: 8px;
+            }
+         
+        </style>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $.getJSON("openlibrary-book.json", function (json1)
+                    {
+                        // Type 1:
+                        //    Book title
+                        //    Publisher
+                        //    Publication date
+                        //    Page count
+                        //    ISBN-10
+                        //    ISBN-13
+                        //    Cover image
+                        //    Author record or author reference
+                        //    First sentence, when available
+                        //    Link to the Open Library record
+                        //    Other relevant metadata contained in the file
+                        
+                        $("#title").html(json1.title); 
+                        $("#publisher").html("<div><b>Publisher:</b> "+json1.publishers[0]+"</div>")
+                        $("#publish").html("<div><b>Publication Date :</b> "+json1.publish_date)
+                        $("#pages").html("<div><b>Number of Pages: </b>"+json1.number_of_pages+"</div>")   
+                        $("#isbn").html("<div><b>ISBNs: </b> "+json1.isbn_10+" | "+json1.isbn_13)
+                        $("#img").html("<img src=https://covers.openlibrary.org/b/id/"+json1.covers[0]+"-L.jpg width=50% alt='Cover illustration for Roald Dahl's Fantastic Mr.Fox'/>")
+                        $("#contributors").html("<div><b>Contributors: </b><a href=https://openlibrary.org"+json1.authors[0].key+">Roald Dahl (author) </a>,"+ json1.contributions)
+                        $("#sentence").html("<div>'"+json1.first_sentence.value+"'</div>")
+                        $("#record").html("<a href=https://openlibrary.org"+json1.key+">Open Library Record</a>")
+                    }); 
+            })
+
+        </script>
+    </head>
+    <body>
+        <div class="book">
+        <p id="title" class="title"></p>
+        <p id="publisher"></p>
+        <p id="publish"></p>
+        <p id="pages"></p>
+        <p id="isbn"></p>
+        <p id="isbn13"></p>
+        <p id="contributors"></p>
+        <p id="img"></p>
+        <p id="sentence"></p>
+        <p id="record"></p>
+        </div>
+        
+
+    </body>
+</html>
