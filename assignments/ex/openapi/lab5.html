@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style></style>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	    <script type="text/javascript">
+
+        fetch("https://openlibrary.org/search.json?q=data%20analysis&limit=10")
+        .then(response => response.json())
+        .then(data => {
+        console.log(data.docs); 
+                
+            $.each(data.docs, function(index, book) { //https://api.jquery.com/each/ each instead of a for loop
+                var bookTitle =""
+                var authorName =""
+                if (!book.title) {
+                    bookTitle += "Unknown Title" 
+                } else 
+                    bookTitle = book.title
+                $("#results").append(bookTitle);
+                if (!book.author_name) {
+                    authorName += "Unknown Author" 
+                } else 
+                    authorName = book.author_name
+                $("#results").append(authorName);
+
+            });
+});
+        </script>
+    </head>
+    <body>
+        <h1>Open Library: Data Analysis Books</h1>
+        <div id="results"></div>
+    </body>
+</html>
