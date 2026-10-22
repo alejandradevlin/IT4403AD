@@ -1,4 +1,4 @@
-const workIds = ["OL20542W", "OL17268007W", "OL453799W","OL17798885W","OL50567W"]; //code for this line taken from class example code.
+const workIds = ["OL50567W", "OL20542W", "OL17268007W", "OL453799W","OL17798885W"]; //code for this line taken from class example code.
 
 $(document).ready(function(){
     for (i in workIds) {
@@ -7,17 +7,16 @@ $(document).ready(function(){
         .then(response => response.json())
         .then(data => {
             console.log(data); 
-                
-            var bookTitle = "";
-            var bookCover = "";
 
+            var bookTitle =""
             if (!data.title) {
-                bookTitle += "<p>Unknown Title</p>";
+                bookTitle += "<p>Unknown Title</p> " 
             } else {
-                bookTitle = "<p>"+ data.title + "</p>"
+                bookTitle = '<p><a href="details.html?workId=' + workIds[i] + '">' + data.title + '</a></p>';
             }
             $("#results").append(bookTitle);
 
+            var bookCover = "";
             if (!data.covers) {
                 bookCover += "<p>No Cover Available</p>"; 
             } else {
