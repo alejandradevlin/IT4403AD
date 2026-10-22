@@ -1,0 +1,49 @@
+#visible { 
+    display: none; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 2%;
+    background-color: #e3deca;
+    font-size: 17px;
+}
+
+nav ul {
+    background: #f4f4f4;
+}
+
+nav li {
+    display: inline;
+
+}
+
+.nocover {
+    background: white;
+    border: 1px solid grey;
+    font-size: 10px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    width: 25px;
+    height: auto;
+    padding: 16px;
+    
+}
+
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: #ddd;
+}
+
+#results img {
+
+    border: 7px solid #f4f4f4;
+
+}
