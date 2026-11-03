@@ -177,7 +177,7 @@ function showDetails(book) { //function taken from class example
     }
   })
   .done(function (data) {
-    $("#bookCollection").append("Children's Book Collection"); //before loop so it prints a single time
+    $("#bookCollection").append("<h3>Children's Book Collection</h3>"); //before loop so it prints a single time
 
     $.each(data.works, function(index, book) {
 
