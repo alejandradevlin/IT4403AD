@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bookly.com/search</title>
+        <link rel="stylesheet" href="openlibrarySPA.css">        
+    </head>
+    <body>
+        <!--
+        Needs: 
+        Search input.
+        Search results.
+        Pagination controls.
+        Selected-book details.
+        A predefined book collection.
+        -->
+        <section id="bookCollection"></section>
+        <section id="bookSearch">
+        <h2> <a href = "openlibrarySPA.html">Bookly.com</a></h2> <!--link to self to give option to clear all current content-->
+
+                <label for="searchBar">Book Search:</label>
+                <input id="searchBar" type="text"/>
+                <button id="go" type="submit">Search</button>
+
+
+
+        <p id="visible">
+            <label for="pageNumber">Page:</label>
+            <select id="pageNumber">
+                <option></option>
+            </select>    
+        </p>
+
+        <section id="searchResults">
+            <div id="results"></div>
+        </section>
+        <section id="details"></section>
+
+        </section>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="openlibrarySPA.js"></script>
+    </body>
+</html>
