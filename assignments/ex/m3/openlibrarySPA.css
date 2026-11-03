@@ -1,0 +1,52 @@
+#visible { 
+    display: none; 
+}
+
+#bookCollection {
+    float: right;
+    margin: 1%;
+    padding: 5px 20px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#details {
+    border: 1px solid black;
+    padding: 10px;
+    display: none; 
+
+
+}
+#bookSearch {
+    margin: 1% 2%;
+    padding: 10px 20px;
+    background-color: white;
+    width: 65%;
+    border: 1px solid black;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 2%;
+    background-color: #e3deca;
+    font-size: 17px;
+}
+
+.nocover {
+    background: white;
+    border: 1px solid grey;
+    font-size: 10px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    width: 25px;
+    height: auto;
+    padding: 16px;
+    
+}
+
+#results img {
+
+    border: 7px solid #f4f4f4;
+
+}
