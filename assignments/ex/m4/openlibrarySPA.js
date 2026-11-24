@@ -60,7 +60,7 @@ $(function () {
       data: {
         q: searchBar,
         limit: 50,
-        fields: "key,title,cover_i,author_name"
+        fields: "key,title,cover_i"
       }
     })
     .done(function (data) {
@@ -123,7 +123,7 @@ $(function () {
       dataType: "json",
       timeout: 15000,
       data: {
-        fields: "title,subjects,cover_id,description"
+        fields: "title,subjects,cover_id,description,author_name"
       }
     })
     .done(function (data) {
