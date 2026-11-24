@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bookly.com/search</title>
+        <link rel="stylesheet" href="openlibrarySPA.css">
+    </head>
+    <body>
+        <!-- collection/search results buttons-->        
+        <button id="collection" type="click">Children's Book Collection</button> 
+        <button id ="res" type ="click">Search</button>
+
+        <h2><a href="openlibrarySPA.html">Bookly.com</a></h2>
+        
+        <!-- list/grid buttons-->
+        <button id = "listview" type="click">List View</button>
+        <button id = "gridview" type ="click">Grid View</button>
+
+        <main>
+            <section id="bookSearch"> 
+                <label for="searchBar">Book Search:</label>
+                <input id="searchBar" type="text"/>
+                <button id="go" type="submit">Search</button>
+
+                <p class="visible">
+                    Page: <select id="pageNumber"></select> of 5
+                </p>
+
+                <section id="searchResults">
+                    <div id="results"></div>
+                </section>
+            </section>
+
+            <section id="bookCollection"></section> <!-- set outside of booksearch so it doesn't get hidden alongside-->
+            <div id="detail">
+                <section id="details"></section> <!-- had to remove details from book search so they can be reliably displayed when book collection is selected-->
+            </div>
+        </main>
+
+        <!--mustache search results-->
+        <script id="book-card-template" type="text/template"> <!--code referenced from class example-->
+            {{#books}}
+            <div class="book-card" data-key="{{key}}">
+                <p>
+                    <button type="button">{{title}}</button>
+                </p>
+                <p>
+                    <img src="{{coverUrl}}" alt="This Cover is Not Avaliable.">
+                </p>
+                <p>
+            <a href="{{openLibraryUrl}}" target="_blank">View on Open Library</a>
+                </p>
+            </div>
+            {{/books}}
+        </script>
+
+        <!--mustache collection-->
+        <script id="book-collection-template" type="text/template"> <!--code referenced from class example-->
+            {{#books}}
+            <div class="book-card" data-key="{{key}}">
+                <p><button type="button">{{title}}</button></p>
+                <p><img src="{{coverUrl}}" alt="No Cover Avaliable"></p>
+                <p><a href="{{openLibraryUrl}}" target="_blank">View on Open Library</a></p>
+            </div>
+            {{/books}}
+        </script>
+
+        <!--mustache details-->
+        <script id="book-details-template" type="text/template"> <!--code referenced from class example-->
+            <p>{{title}}</p>
+            <p>Work ID: {{workId}}</p>
+            <p>{{author}}</p>
+            <div>{{{description}}}</div>
+            <p>
+                {{#subjects}} <!--code sourced from: https://stackoverflow.com/questions/17395357/how-to-render-array-of-arrays-of-objects-with-mustache for working w/ arrays and mustache-->
+                    <i>{{.}}</i> | 
+                {{/subjects}}
+            </p>
+            <p><img src="{{coverUrl}}" alt="No Cover Avaliable"></p>
+            <a href="{{openLibraryUrl}}" target="_blank">View on Open Library</a>
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+        <script src="openlibrarySPA.js"></script>
+    </body>
+</html>
